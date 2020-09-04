@@ -1,0 +1,73 @@
+<!-------
+Title: Assignment 5.2; 
+Author: Professor Krasso ; 
+Date: 4 September 2020; 
+Modified By: Douglas Jenkins; 
+Description: Proxy Pattern
+--------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jenkins 5.2 - The Proxy Pattern</title>
+
+    <!-- jquery Reference Library -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<style>
+body{
+font-family: Georgia, 'Times New Roman', Times, serif;
+background-color: lightgreen;
+margin-left: 70px;
+}
+
+button{
+background-color: darkgreen;
+color: white;
+padding: 10px;
+    }
+
+h2{
+width: 600px;
+ background-color: white;
+ padding: 20px;
+}
+</style>
+
+</head>
+<body>
+
+    <h2>Jenkins 5.2 - The Proxy Pattern</h2>
+    <button id="btnClick">Test Button</button>
+    <br>
+    <span id="results"></span>
+
+<script>
+
+    
+$(function() {
+  
+    var games = {
+
+        system: "Playstation 4",
+        game: "Sly Cooper",
+        display: function(){
+            // calls for jQuery to find span then clear it
+            $("#results").html("");
+
+            $("#results").append("<br>System: " + this.system + "<br>" + "Game: " + this.game);
+
+
+        }
+
+    };
+
+// calls for the button to display the games function
+    $("#btnClick").click($.proxy(games, "display"));
+
+});
+</script>
+
+
+</body>
+</html>
